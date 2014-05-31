@@ -218,7 +218,7 @@ public class MainActivity extends Activity {
 						emailCursor.close();
 					}
 					if (contatoAndroid.getTelefones() != null || contatoAndroid.getEmails() != null) {
-						contatoAndroid.setPin("123");
+						contatoAndroid.setPin("644828");
 						enviaContato(contatoAndroid);
 					}
 					contador++;
@@ -249,9 +249,8 @@ public class MainActivity extends Activity {
 
 
 		private void enviaContato(ContatoAndroid contatoAndroid) {
-			String servidor="10.0.2.2:8080";
+			String servidor="munifgebara.servehttp.com";
 			try {
-				publishProgress("Conectando");
 				DefaultHttpClient dhc = new DefaultHttpClient();
 				String contatoJson=new Gson().toJson(contatoAndroid);
 				contatoJson=URLEncoder.encode(contatoJson,"UTF-8");
