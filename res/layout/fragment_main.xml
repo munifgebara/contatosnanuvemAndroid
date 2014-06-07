@@ -24,4 +24,17 @@
         android:text="Button"
         android:onClick="acessaContatos" />
 
+    <EditText
+        android:id="@+id/etPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="46dp"
+        android:ems="10"
+        android:text="446720" >
+
+        <requestFocus />
+    </EditText>
+
 </RelativeLayout>

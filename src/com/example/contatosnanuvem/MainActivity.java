@@ -27,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.os.Build;
 import android.provider.ContactsContract;
@@ -66,7 +67,9 @@ public class MainActivity extends Activity {
 
 	public void acessaContatos(View v) {
 		EnviaContatos ec = new EnviaContatos();
-		ec.execute("123");
+		EditText etPin=(EditText)findViewById(R.id.etPin);
+		
+		ec.execute(etPin.getText().toString());
 	}
 
 	public void obtemContatos() {
@@ -218,7 +221,7 @@ public class MainActivity extends Activity {
 						emailCursor.close();
 					}
 					if (contatoAndroid.getTelefones() != null || contatoAndroid.getEmails() != null) {
-						contatoAndroid.setPin("644828");
+						contatoAndroid.setPin(params[0]);
 						enviaContato(contatoAndroid);
 					}
 					contador++;
@@ -249,7 +252,8 @@ public class MainActivity extends Activity {
 
 
 		private void enviaContato(ContatoAndroid contatoAndroid) {
-			String servidor="munifgebara.servehttp.com";
+			//String servidor="munifgebara.servehttp.com";
+			String servidor="10.12.15.229:8080";
 			try {
 				DefaultHttpClient dhc = new DefaultHttpClient();
 				String contatoJson=new Gson().toJson(contatoAndroid);
